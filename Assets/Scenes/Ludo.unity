@@ -4938,7 +4938,7 @@ MonoBehaviour:
   - {fileID: 1650733027}
   - {fileID: 1088548659}
   dado: {fileID: 1745497472}
-  ButtonDado: {fileID: 0}
+  ButtonDado: {fileID: 1745497473}
   Dados1Animacao: {fileID: 1117051537}
   Dados2Animacao: {fileID: 2116515003}
   Dados3Animacao: {fileID: 831032389}

@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
 
 	void InitializeDice()
 	{
-		//BotaoDado.interactable = true;
+		ButtonDado.interactable = true;
 
 		Dados1Animacao.SetActive(false);
 		Dados2Animacao.SetActive(false);
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
 	public void DiceRoll()
 	{
 		//SoundManagerScript.diceAudioSource.Play ();
-		//BotaoDado.interactable = false;
+		ButtonDado.interactable = false;
 
 		selectDadoAnimacao = randomNo.Next(1, 7);
 
