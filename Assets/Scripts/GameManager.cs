@@ -8,20 +8,6 @@ public class GameManager : MonoBehaviour
 	public int PlayerVermelho1Index = 0;
 	public bool PlayerVermelho1moveAllowed;
 
-	public Vector3 PlayerVerde1Pos, PlayerVerde2Pos, PlayerVerde3Pos, PlayerVerde4Pos;
-    public Vector3 PlayerAzul1Pos, PlayerAzul2Pos, PlayerAzul3Pos, PlayerAzul4Pos;
-    public Vector3 PlayerAmarelo1Pos, PlayerAmarelo2Pos, PlayerAmarelo3Pos, PlayerAmarelo4Pos;
-
-    //Controlar a saida de um player da sua casa inicial
-    public Button PlayerVermelho1Botao, PlayerVermelho2Botao, PlayerVermelho3Botao, PlayerVermelho4Botao;
-    public Button PlayerVerde1Botao, PlayerVerde2Botao, PlayerVerde3Botao, PlayerVerde4Botao;
-    public Button PlayerAzul1Botao, PlayerAzul2Botao, PlayerAzul3Botao, PlayerAzul4Botao;
-    public Button PlayerAmarelo1Botao, PlayerAmarelo2Botao, PlayerAmarelo3Botao, PlayerAmarelo4Botao;
-
-    private string playerTurn = "Vermelho";
-    private string currentPlayer = "none";
-    private string currentPlayerName = "none";
-
 	// Controle do movimento dos jogadores
 	public static GameObject PlayerVermelho1, PlayerVermelho2, PlayerVermelho3, PlayerVermelho4;
     public GameObject PlayerVerde1, PlayerVerde2, PlayerVerde3, PlayerVerde4;
@@ -29,10 +15,6 @@ public class GameManager : MonoBehaviour
     public GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo, PlayerAmarelo4;
 
     // Tracking dos steps dos jogadores, aonde eles estão no mapa
-    private int PlayerVermelho1Passos, PlayerVermelho2Passos, PlayerVermelho3Passos, PlayerVermelho4Passos;
-    private int PlayerVerde1Passos, PlayerVerde2Passos, PlayerVerde3Passos, PlayerVerde4Passos;
-    private int PlayerAzul1Passos, PlayerAzul2Passos, PlayerAzul3Passos, PlayerAzul4Passos;
-    private int PlayerAmarelo1Passos, PlayerAmarelo2Passos, PlayerAmarelo3Passos, PlayerAmarelo4Passos;
 
     public List<GameObject> MovimentacaoVermelhoBloco = new List<GameObject>();
     public List<GameObject> MovimentacaoVerdeBloco = new List<GameObject>();
@@ -161,18 +143,15 @@ public class GameManager : MonoBehaviour
 		//PlayerVermelho2Pos = PlayerVermelho2.transform.position;
 		//PlayerVermelho3Pos = PlayerVermelho3.transform.position;
 		//PlayerVermelho4Pos = PlayerVermelho4.transform.position;
-
-		playerTurn = "VERMELHO";
-
 	}
 
 	private void Update()
     {
-		if (PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().caminhoIndex >
+		if (PlayerVermelho1.GetComponent<PlayerScript>().caminhoIndex >
 		   PlayerVermelho1Index + selectDadoAnimacao)
 		{
-			PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().moveAllowed = false;
-			PlayerVermelho1Index = PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().caminhoIndex - 1;
+			PlayerVermelho1.GetComponent<PlayerScript>().moveAllowed = false;
+			PlayerVermelho1Index = PlayerVermelho1.GetComponent<PlayerScript>().caminhoIndex - 1;
 
 			// Ativa o botão do dado
 			ButtonDado.interactable = true;
@@ -181,7 +160,7 @@ public class GameManager : MonoBehaviour
 
 	public static void MovePlayer(GameObject player)
 	{
-		player.GetComponent<PlayerVermelho1_Script>().moveAllowed = true;	
+		player.GetComponent<PlayerScript>().moveAllowed = true;	
 	}
 
 }

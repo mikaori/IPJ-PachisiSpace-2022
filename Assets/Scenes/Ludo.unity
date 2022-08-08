@@ -990,7 +990,7 @@ MonoBehaviour:
   - {fileID: 4382853}
   - {fileID: 1431496200}
   - {fileID: 775915455}
-  moveSpeed: 55
+  moveSpeed: 90
   caminhoIndex: 0
   moveAllowed: 0
 --- !u!1 &243398386
@@ -4737,34 +4737,6 @@ MonoBehaviour:
   PlayerVermelho4Pos: {x: 0, y: 0, z: 0}
   PlayerVermelho1Index: 0
   PlayerVermelho1moveAllowed: 0
-  PlayerVerde1Pos: {x: 0, y: 0, z: 0}
-  PlayerVerde2Pos: {x: 0, y: 0, z: 0}
-  PlayerVerde3Pos: {x: 0, y: 0, z: 0}
-  PlayerVerde4Pos: {x: 0, y: 0, z: 0}
-  PlayerAzul1Pos: {x: 0, y: 0, z: 0}
-  PlayerAzul2Pos: {x: 0, y: 0, z: 0}
-  PlayerAzul3Pos: {x: 0, y: 0, z: 0}
-  PlayerAzul4Pos: {x: 0, y: 0, z: 0}
-  PlayerAmarelo1Pos: {x: 0, y: 0, z: 0}
-  PlayerAmarelo2Pos: {x: 0, y: 0, z: 0}
-  PlayerAmarelo3Pos: {x: 0, y: 0, z: 0}
-  PlayerAmarelo4Pos: {x: 0, y: 0, z: 0}
-  PlayerVermelho1Botao: {fileID: 219609435}
-  PlayerVermelho2Botao: {fileID: 1251982830}
-  PlayerVermelho3Botao: {fileID: 756382172}
-  PlayerVermelho4Botao: {fileID: 1918984784}
-  PlayerVerde1Botao: {fileID: 1276210163}
-  PlayerVerde2Botao: {fileID: 42777638}
-  PlayerVerde3Botao: {fileID: 970776324}
-  PlayerVerde4Botao: {fileID: 1920571121}
-  PlayerAzul1Botao: {fileID: 535991345}
-  PlayerAzul2Botao: {fileID: 1702298786}
-  PlayerAzul3Botao: {fileID: 297268280}
-  PlayerAzul4Botao: {fileID: 1847704926}
-  PlayerAmarelo1Botao: {fileID: 219609435}
-  PlayerAmarelo2Botao: {fileID: 1251982830}
-  PlayerAmarelo3Botao: {fileID: 756382172}
-  PlayerAmarelo4Botao: {fileID: 1918984784}
   PlayerVerde1: {fileID: 1276210157}
   PlayerVerde2: {fileID: 42777632}
   PlayerVerde3: {fileID: 970776318}

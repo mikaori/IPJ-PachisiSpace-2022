@@ -17,12 +17,4 @@ public class Menu : MonoBehaviour
 
 
     }
-    public void Quit()
-    {
-        SoundManager.startPlayerAudioSource.Play();
-        if (EditorApplication.isPlaying)
-        {
-            EditorApplication.isPlaying = false;
-        }
-    }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerVermelho1_Script : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public Transform[] caminho;
 
