@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip selectionOptionMenuAudioClip;
     public AudioClip gameMusicAudioClip;
     public AudioClip jumpAudioClip;
+    public AudioClip DadoAudioClip;
 
     public static AudioSource startPlayerAudioSource;
     public static AudioSource hitPlayerAudioSource;
@@ -15,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public static AudioSource selectionOptionMenuAudioSource;
     public static AudioSource gameMusicAudioSource;
     public static AudioSource jumpAudioAudioSource;
+    public static AudioSource dadoAudioSource;
 
     AudioSource AddAudio(AudioClip clip, bool playOnAwake, bool loop, float volume)
     {
@@ -37,6 +39,8 @@ public class SoundManager : MonoBehaviour
         selectionOptionMenuAudioSource = AddAudio(selectionOptionMenuAudioClip, false, false, 1.0f);
         gameMusicAudioSource = AddAudio(gameMusicAudioClip, false, true, 1.0f);
         jumpAudioAudioSource = AddAudio(jumpAudioClip, false, false, 1.0f);
+        dadoAudioSource = AddAudio(DadoAudioClip, false, false, 1.0f);
+
     }
 
 }

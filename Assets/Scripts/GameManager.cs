@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    private int totalVermelhosFim, totalVerdeInicioFim, totalAzulInicioFim, totalAmareloInicioFim;
-
     public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
-    public Vector3 PlayerVerde1Pos, PlayerVerde2Pos, PlayerVerde3Pos, PlayerVerde4Pos;
+	public int PlayerVermelho1Index = 0;
+	public bool PlayerVermelho1moveAllowed;
+
+	public Vector3 PlayerVerde1Pos, PlayerVerde2Pos, PlayerVerde3Pos, PlayerVerde4Pos;
     public Vector3 PlayerAzul1Pos, PlayerAzul2Pos, PlayerAzul3Pos, PlayerAzul4Pos;
     public Vector3 PlayerAmarelo1Pos, PlayerAmarelo2Pos, PlayerAmarelo3Pos, PlayerAmarelo4Pos;
 
@@ -21,8 +22,8 @@ public class GameManager : MonoBehaviour
     private string currentPlayer = "none";
     private string currentPlayerName = "none";
 
-    // Controle do movimento dos jogadores
-    public GameObject PlayerVermelho1, PlayerVermelho2, PlayerVermelho3, PlayerVermelho4;
+	// Controle do movimento dos jogadores
+	public static GameObject PlayerVermelho1, PlayerVermelho2, PlayerVermelho3, PlayerVermelho4;
     public GameObject PlayerVerde1, PlayerVerde2, PlayerVerde3, PlayerVerde4;
     public GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
     public GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo, PlayerAmarelo4;
@@ -41,8 +42,6 @@ public class GameManager : MonoBehaviour
     public Transform dado;
 
     public Button ButtonDado;
-
-    private System.Random randNumber;
 
     private int selectDadoAnimacao;
 
@@ -67,35 +66,12 @@ public class GameManager : MonoBehaviour
 		Dados5Animacao.SetActive(false);
 		Dados6Animacao.SetActive(false);
 
-		//======== Getting currentPlayer VALUE=======
-		if (currentPlayerName.Contains("PLAYER VERMELHO"))
-		{
-			if (currentPlayerName == "PLAYER VERMELHO 1")
-			{
-				Debug.Log("currentPlayerName = " + currentPlayerName);
-				currentPlayer = PlayerVermelho1_Script.PlayerVermelho1_ColName;
-			}
-			if (currentPlayerName == "PLAYER VERMELHO 2")
-			{
-				Debug.Log("currentPlayerName = " + currentPlayerName);
-				currentPlayer = PlayerVermelho2_Script.PlayerVermelho2_ColName;
-			}
-			if (currentPlayerName == "PLAYER VERMELHO 3")
-			{
-				Debug.Log("currentPlayerName = " + currentPlayerName);
-				currentPlayer = PlayerVermelho3_Script.PlayerVermelho3_ColName;
-			}
-			if (currentPlayerName == "PLAYER VERMELHO 4")
-			
-				Debug.Log("currentPlayerName = " + currentPlayerName);
-				currentPlayer = PlayerVermelho4_Script.PlayerVermelho4_ColName;
-		}
 	}
 
 	// Click on Roll Button on Dice UI
 	public void DiceRoll()
 	{
-		//SoundManagerScript.diceAudioSource.Play ();
+		// Desativa o botão do dado
 		ButtonDado.interactable = false;
 
 		selectDadoAnimacao = randomNo.Next(1, 7);
@@ -156,7 +132,11 @@ public class GameManager : MonoBehaviour
 				Dados6Animacao.SetActive(true);
 				break;
 		}
+
+		GameObject player = PlayerVermelho1;
+		MovePlayer(player);
 	}
+
 
 	private void Start()
 	{
@@ -172,11 +152,36 @@ public class GameManager : MonoBehaviour
 		Dados5Animacao.SetActive(false);
 		Dados6Animacao.SetActive(false);
 
+		PlayerVermelho1 = GameObject.Find("Vermelho-1");
+
+		PlayerVermelho1moveAllowed = false;
+
 		// Players initial positions.....
-		PlayerVermelho1Pos = PlayerVermelho1.transform.position;
-		PlayerVermelho2Pos = PlayerVermelho2.transform.position;
-		PlayerVermelho3Pos = PlayerVermelho3.transform.position;
-		PlayerVermelho4Pos = PlayerVermelho4.transform.position;
+		PlayerVermelho1Pos = MovimentacaoVermelhoBloco[PlayerVermelho1Index].transform.position;
+		//PlayerVermelho2Pos = PlayerVermelho2.transform.position;
+		//PlayerVermelho3Pos = PlayerVermelho3.transform.position;
+		//PlayerVermelho4Pos = PlayerVermelho4.transform.position;
+
+		playerTurn = "VERMELHO";
 
 	}
+
+	private void Update()
+    {
+		if (PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().caminhoIndex >
+		   PlayerVermelho1Index + selectDadoAnimacao)
+		{
+			PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().moveAllowed = false;
+			PlayerVermelho1Index = PlayerVermelho1.GetComponent<PlayerVermelho1_Script>().caminhoIndex - 1;
+
+			// Ativa o botão do dado
+			ButtonDado.interactable = true;
+		}
+	}
+
+	public static void MovePlayer(GameObject player)
+	{
+		player.GetComponent<PlayerVermelho1_Script>().moveAllowed = true;	
+	}
+
 }
