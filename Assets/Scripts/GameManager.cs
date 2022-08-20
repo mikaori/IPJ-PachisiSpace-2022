@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
-    public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
+	private List<string> jogadorEscolheu = MenuColor.jogadorEscolheu; 
+
+	public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
 	public int PlayerVermelho1Index = 0;
 	public bool PlayerVermelho1moveAllowed;
 

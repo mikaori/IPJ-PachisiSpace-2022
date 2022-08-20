@@ -4,17 +4,22 @@ using UnityEditor;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private string nextScene;
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetMouseButton(0))
-        {
-            SoundManager.startPlayerAudioSource.Play();
-            SceneManager.LoadScene("Ludo");
-        }
+    }
 
+    public void Play()
+    {
+        SoundManager.startPlayerAudioSource.Play();
+        SceneManager.LoadScene(nextScene);
+    }
 
+    public void Sair()
+    {
+        Application.Quit();
     }
 }
