@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 42777637}
   - component: {fileID: 42777636}
   - component: {fileID: 42777638}
+  - component: {fileID: 42777639}
   m_Layer: 5
   m_Name: Verde-2
   m_TagString: Untagged
@@ -521,6 +522,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &42777639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42777632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &59427296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1163,7 @@ MonoBehaviour:
   moveSpeed: 90
   caminhoIndex: 0
   moveAllowed: 0
+  Cor: vermelho
 --- !u!1 &229904326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1482,7 @@ GameObject:
   - component: {fileID: 297268279}
   - component: {fileID: 297268278}
   - component: {fileID: 297268280}
+  - component: {fileID: 297268281}
   m_Layer: 5
   m_Name: Azul-3
   m_TagString: Untagged
@@ -1619,6 +1639,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &297268281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297268274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &302429280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,6 +2743,7 @@ GameObject:
   - component: {fileID: 535991344}
   - component: {fileID: 535991343}
   - component: {fileID: 535991345}
+  - component: {fileID: 535991346}
   m_Layer: 5
   m_Name: Azul-1
   m_TagString: Untagged
@@ -2861,7 +2899,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 535991341}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &535991346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535991339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &539477154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,6 +3724,7 @@ GameObject:
   - component: {fileID: 756382171}
   - component: {fileID: 756382170}
   - component: {fileID: 756382172}
+  - component: {fileID: 756382173}
   m_Layer: 5
   m_Name: Vermelho-3
   m_TagString: Untagged
@@ -3813,6 +3881,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &756382173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756382166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &773788354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4988,6 +5073,8 @@ GameObject:
   - component: {fileID: 970776323}
   - component: {fileID: 970776322}
   - component: {fileID: 970776324}
+  - component: {fileID: 970776326}
+  - component: {fileID: 970776325}
   m_Layer: 5
   m_Name: Verde-3
   m_TagString: Untagged
@@ -5144,6 +5231,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &970776325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970776318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
+--- !u!114 &970776326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970776318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &985855742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +5841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac042b90ceaa25418280b9ca6365238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JogadorText: {fileID: 1917438354}
   PlayerVermelho1Pos: {x: 0, y: 0, z: 0}
   PlayerVermelho2Pos: {x: 0, y: 0, z: 0}
   PlayerVermelho3Pos: {x: 0, y: 0, z: 0}
@@ -6394,6 +6516,7 @@ GameObject:
   - component: {fileID: 1166423651}
   - component: {fileID: 1166423650}
   - component: {fileID: 1166423652}
+  - component: {fileID: 1166423653}
   m_Layer: 5
   m_Name: Amarelo-2
   m_TagString: Untagged
@@ -6550,6 +6673,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1166423653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166423646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1167360158
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,6 +7084,7 @@ GameObject:
   - component: {fileID: 1251982829}
   - component: {fileID: 1251982828}
   - component: {fileID: 1251982830}
+  - component: {fileID: 1251982831}
   m_Layer: 5
   m_Name: Vermelho-2
   m_TagString: Untagged
@@ -7100,6 +7241,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1251982831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251982824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1257260682
 GameObject:
   m_ObjectHideFlags: 0
@@ -7266,6 +7424,7 @@ GameObject:
   - component: {fileID: 1276210162}
   - component: {fileID: 1276210161}
   - component: {fileID: 1276210163}
+  - component: {fileID: 1276210164}
   m_Layer: 5
   m_Name: Verde-1
   m_TagString: Untagged
@@ -7422,6 +7581,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1276210164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276210157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1280079419
 GameObject:
   m_ObjectHideFlags: 0
@@ -9226,6 +9402,7 @@ GameObject:
   - component: {fileID: 1702298785}
   - component: {fileID: 1702298784}
   - component: {fileID: 1702298786}
+  - component: {fileID: 1702298787}
   m_Layer: 5
   m_Name: Azul-2
   m_TagString: Untagged
@@ -9382,6 +9559,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1702298787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702298780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1745497471
 GameObject:
   m_ObjectHideFlags: 0
@@ -9688,6 +9882,7 @@ GameObject:
   - component: {fileID: 1847704925}
   - component: {fileID: 1847704924}
   - component: {fileID: 1847704926}
+  - component: {fileID: 1847704927}
   m_Layer: 5
   m_Name: Azul-4
   m_TagString: Untagged
@@ -9844,6 +10039,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1847704927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847704920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1856860726
 GameObject:
   m_ObjectHideFlags: 0
@@ -10369,6 +10581,7 @@ GameObject:
   - component: {fileID: 1916908808}
   - component: {fileID: 1916908807}
   - component: {fileID: 1916908809}
+  - component: {fileID: 1916908810}
   m_Layer: 5
   m_Name: Amarelo-3
   m_TagString: Untagged
@@ -10524,7 +10737,36 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1916908805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1916908810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916908803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1917438352
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,7 +10779,7 @@ GameObject:
   - component: {fileID: 1917438355}
   - component: {fileID: 1917438354}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: JogadorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10560,8 +10802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 516.99994, y: 331.02}
-  m_SizeDelta: {x: 180, y: 37.9553}
+  m_AnchoredPosition: {x: 528.26, y: 316.88}
+  m_SizeDelta: {x: 242.523, y: 66.2396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917438354
 MonoBehaviour:
@@ -10619,6 +10861,7 @@ GameObject:
   - component: {fileID: 1918984783}
   - component: {fileID: 1918984782}
   - component: {fileID: 1918984784}
+  - component: {fileID: 1918984785}
   m_Layer: 5
   m_Name: Vermelho-4
   m_TagString: Untagged
@@ -10775,6 +11018,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1918984785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918984778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1920571115
 GameObject:
   m_ObjectHideFlags: 0
@@ -10789,6 +11049,7 @@ GameObject:
   - component: {fileID: 1920571120}
   - component: {fileID: 1920571119}
   - component: {fileID: 1920571121}
+  - component: {fileID: 1920571122}
   m_Layer: 5
   m_Name: Verde-4
   m_TagString: Untagged
@@ -10945,6 +11206,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1920571122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920571115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1941751534
 GameObject:
   m_ObjectHideFlags: 0
@@ -11035,6 +11313,7 @@ GameObject:
   - component: {fileID: 1956424084}
   - component: {fileID: 1956424083}
   - component: {fileID: 1956424085}
+  - component: {fileID: 1956424086}
   m_Layer: 5
   m_Name: Amarelo-4
   m_TagString: Untagged
@@ -11191,6 +11470,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1956424086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956424079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &1980498921
 GameObject:
   m_ObjectHideFlags: 0
@@ -12258,6 +12554,7 @@ GameObject:
   - component: {fileID: 2137039855}
   - component: {fileID: 2137039854}
   - component: {fileID: 2137039856}
+  - component: {fileID: 2137039857}
   m_Layer: 5
   m_Name: Amarelo-1
   m_TagString: Untagged
@@ -12414,6 +12711,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2137039857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137039850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caminho: []
+  moveSpeed: 50
+  caminhoIndex: 0
+  moveAllowed: 0
+  Cor: 
 --- !u!1 &2137333529
 GameObject:
   m_ObjectHideFlags: 0

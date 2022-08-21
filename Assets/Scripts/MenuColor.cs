@@ -9,7 +9,7 @@ public class MenuColor : MonoBehaviour
 {
     public Text title, start;
 
-    public static List<string> jogadorEscolheu;
+    public static List<string> jogadorEscolheu = new List<string>();
 
     public Button verde, vermelho, azul, amarelo;
 

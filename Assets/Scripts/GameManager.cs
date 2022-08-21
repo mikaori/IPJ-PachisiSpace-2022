@@ -48,6 +48,20 @@ public class GameManager : MonoBehaviour
 	// Random generation of dice numbers...
 	private System.Random randomNo;
 
+	private static GameManager instance = null;
+
+	public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+				instance = GameObject.Find("GameManager").GetComponent<GameManager>();
+            }
+			return instance;
+        }
+    }
+
 	void InitializeDice()
 	{
 		ButtonDado.interactable = true;
@@ -149,6 +163,9 @@ public class GameManager : MonoBehaviour
 
 		AlteraJogadorText();
 
+
+		PlayerVermelho1.GetComponent<Button>().onClick.AddListener(() => PlayerVermelho1.GetComponent<PlayerScript>().FoiClicado());
+
 		// Players initial positions.....
 		//PlayerVermelho1Pos = MovimentacaoVermelhoBloco[PlayerVermelho1Index].transform.position;
 		//PlayerVermelho2Pos = PlayerVermelho2.transform.position;
@@ -171,7 +188,8 @@ public class GameManager : MonoBehaviour
 
 	public static void MovePlayer(GameObject player)
 	{
-		player.GetComponent<PlayerScript>().moveAllowed = true;	
+		
+		player.GetComponent<PlayerScript>().IniciaMovimento();	
 	}
 
 	private void AlteraJogadorText()
@@ -179,8 +197,10 @@ public class GameManager : MonoBehaviour
 		JogadorText.text = "Jogador " + (JogadorVez+1).ToString();
 	}
 
-	private string CorJogadorVez()
+	public string CorJogadorVez()
     {
 		return jogadorEscolheu[JogadorVez];
+		//return "vermelho";
     }
+	
 }

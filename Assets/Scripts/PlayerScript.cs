@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -16,22 +17,23 @@ public class PlayerScript : MonoBehaviour
 
     private bool Escolhido = false;
 
+    public string Cor;
+
     // Use this for initialization
     private void Start()
     {
-
+    
     }
 
     private bool PodeMover()
     {
-        if (!Escolhido) return false;
-        return moveAllowed;
+        return Escolhido;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (PodeMover())
+        if (moveAllowed)
             Move();
     }
 
@@ -49,4 +51,29 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }
+
+    public void LiberaPersonagem()
+    {
+        Escolhido = true;
+        moveAllowed = true;
+    }
+
+    public void FoiClicado()
+    {
+        if (GameManager.Instance.CorJogadorVez() == Cor)
+        {
+            LiberaPersonagem();
+        }      
+    }
+
+    public void IniciaMovimento()
+    {
+        if(Escolhido == true)
+        {
+            moveAllowed = true;
+        }
+
+    }
+
+
 }
