@@ -149,10 +149,8 @@ public class GameManager : MonoBehaviour
 
 		AlteraJogadorText();
 
-		PlayerVermelho1moveAllowed = false;
-
 		// Players initial positions.....
-		PlayerVermelho1Pos = MovimentacaoVermelhoBloco[PlayerVermelho1Index].transform.position;
+		//PlayerVermelho1Pos = MovimentacaoVermelhoBloco[PlayerVermelho1Index].transform.position;
 		//PlayerVermelho2Pos = PlayerVermelho2.transform.position;
 		//PlayerVermelho3Pos = PlayerVermelho3.transform.position;
 		//PlayerVermelho4Pos = PlayerVermelho4.transform.position;
@@ -181,4 +179,8 @@ public class GameManager : MonoBehaviour
 		JogadorText.text = "Jogador " + (JogadorVez+1).ToString();
 	}
 
+	private string CorJogadorVez()
+    {
+		return jogadorEscolheu[JogadorVez];
+    }
 }

@@ -14,16 +14,24 @@ public class PlayerScript : MonoBehaviour
 
     public bool moveAllowed = false;
 
+    private bool Escolhido = false;
+
     // Use this for initialization
     private void Start()
     {
-        transform.position = caminho[caminhoIndex].transform.position;
+
+    }
+
+    private bool PodeMover()
+    {
+        if (!Escolhido) return false;
+        return moveAllowed;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (moveAllowed)
+        if (PodeMover())
             Move();
     }
 
