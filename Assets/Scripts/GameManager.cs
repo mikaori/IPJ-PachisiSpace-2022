@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
+	// identifica o jogador que deve jogar
+	public Text JogadorText;
+
+	// identifica qual é o jogador da vez ("que está jogando agora") 
+	private int JogadorVez=0;
+
+	// list com a cor de cada jogador
 	private List<string> jogadorEscolheu = MenuColor.jogadorEscolheu; 
 
 	public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
@@ -23,7 +30,9 @@ public class GameManager : MonoBehaviour
     public List<GameObject> MovimentacaoAzulBloco = new List<GameObject>();
     public List<GameObject> MovimentacaoAmareloBloco = new List<GameObject>();
 
-    public Transform dado;
+	public List<GameObject> CasasStars = new List<GameObject>();
+
+	public Transform dado;
 
     public Button ButtonDado;
 
@@ -138,6 +147,8 @@ public class GameManager : MonoBehaviour
 
 		PlayerVermelho1 = GameObject.Find("Vermelho-1");
 
+		AlteraJogadorText();
+
 		PlayerVermelho1moveAllowed = false;
 
 		// Players initial positions.....
@@ -163,6 +174,11 @@ public class GameManager : MonoBehaviour
 	public static void MovePlayer(GameObject player)
 	{
 		player.GetComponent<PlayerScript>().moveAllowed = true;	
+	}
+
+	private void AlteraJogadorText()
+    {
+		JogadorText.text = "Jogador " + (JogadorVez+1).ToString();
 	}
 
 }
