@@ -91,6 +91,13 @@ public class GameManager : MonoBehaviour
 
 	}
 
+	//Verifica se o dado foi jogado.
+	//Um exemplo de aplicação é permitir escolher o jogador apenas depois de rodar o dado.
+	public bool VerificaSeDadoFoiJogado()
+    {
+		return !ButtonDado.interactable;
+	}
+
 	// Click on Roll Button on Dice UI
 	public void DiceRoll()
 	{
@@ -214,13 +221,10 @@ public class GameManager : MonoBehaviour
     {
 
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
-
-		Debug.Log(selectDadoAnimacao);
 		
 		if (Player.GetComponent<PlayerScript>().caminhoIndex >
 		   PlayerIndex + selectDadoAnimacao)
-		{
-			
+		{		
 			Player.GetComponent<PlayerScript>().moveAllowed = false;
 			PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
 
@@ -230,8 +234,6 @@ public class GameManager : MonoBehaviour
             {
 				AtualizaJogador(true);
 			}
-			
-			
 		}
 	}
 

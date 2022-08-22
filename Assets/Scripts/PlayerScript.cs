@@ -60,7 +60,8 @@ public class PlayerScript : MonoBehaviour
 
     public void FoiClicado()
     {
-        if (GameManager.Instance.CorJogadorVez() == Cor)
+        if (GameManager.Instance.CorJogadorVez() == Cor 
+            && GameManager.Instance.VerificaSeDadoFoiJogado()) 
         {
             LiberaPersonagem();
         }
