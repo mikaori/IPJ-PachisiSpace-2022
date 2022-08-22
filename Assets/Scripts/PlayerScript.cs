@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
 
     public bool moveAllowed = false;
 
-    private bool Escolhido = false;
+    public bool Escolhido = false;
 
     public string Cor;
 
@@ -63,11 +63,14 @@ public class PlayerScript : MonoBehaviour
         if (GameManager.Instance.CorJogadorVez() == Cor)
         {
             LiberaPersonagem();
-        }      
+        }
+
+        //Atualiza jogador da vez
     }
 
     public void IniciaMovimento()
     {
+        
         if(Escolhido == true)
         {
             moveAllowed = true;
