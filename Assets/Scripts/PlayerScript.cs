@@ -25,11 +25,6 @@ public class PlayerScript : MonoBehaviour
     
     }
 
-    private bool PodeMover()
-    {
-        return Escolhido;
-    }
-
     // Update is called once per frame
     private void Update()
     {
@@ -45,10 +40,15 @@ public class PlayerScript : MonoBehaviour
             caminho[caminhoIndex].transform.position,
             moveSpeed * Time.deltaTime);
 
-            if (transform.position == caminho[caminhoIndex].transform.position)
+            if (Vector2.Distance(transform.position, caminho[caminhoIndex].transform.position) < 0.1 )
             {
                 caminhoIndex += 1;
             }
+            Debug.Log("Movendo Personagem");
+            Debug.Log("caminho"+ caminhoIndex);
+            Debug.Log("caminho.length" + caminho.Length);
+            Debug.Log("caminho transform"+caminho[caminhoIndex].transform.position);
+            Debug.Log("caminho transform"+transform.position);
         }
     }
 
@@ -56,6 +56,8 @@ public class PlayerScript : MonoBehaviour
     {
         Escolhido = true;
         moveAllowed = true;
+
+        Debug.Log ("Liberando Personagem");
     }
 
     public void FoiClicado()
@@ -63,7 +65,12 @@ public class PlayerScript : MonoBehaviour
         if (GameManager.Instance.CorJogadorVez() == Cor 
             && GameManager.Instance.VerificaSeDadoFoiJogado()) 
         {
-            LiberaPersonagem();
+            if (Escolhido) LiberaPersonagem();
+            else if (!Escolhido && GameManager.Instance.selectDadoAnimacao == 6)
+            {
+                Debug.Log("Conseguiu sair");
+                LiberaPersonagem();
+            }
         }
 
         //Atualiza jogador da vez
