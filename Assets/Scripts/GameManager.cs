@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 	private List<string> jogadorEscolheu = gambiList();
 
 	public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
-	public int PlayerVermelho1Index=0, PlayerVermelho2Index=0, PlayerVermelho3Index=0, PlayerVermelho4Index=0;
+	public int PlayerVermelho1Index = 0, PlayerVermelho2Index = 0, PlayerVermelho3Index = 0, PlayerVermelho4Index = 0;
 	public int PlayerAmarelo1Index = 0, PlayerAmarelo2Index = 0, PlayerAmarelo3Index = 0, PlayerAmarelo4Index = 0;
 	public int PlayerVerde1Index = 0, PlayerVerde2Index = 0, PlayerVerde3Index = 0, PlayerVerde4Index = 0;
 	public int PlayerAzul1Index = 0, PlayerAzul2Index = 0, PlayerAzul3Index = 0, PlayerAzul4Index = 0;
@@ -25,16 +25,16 @@ public class GameManager : MonoBehaviour
 
 	// Controle do movimento dos jogadores
 	public static GameObject PlayerVermelho1, PlayerVermelho2, PlayerVermelho3, PlayerVermelho4;
-    public GameObject PlayerVerde1, PlayerVerde2, PlayerVerde3, PlayerVerde4;
-    public GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
-    public GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
+    public static GameObject PlayerVerde1, PlayerVerde2, PlayerVerde3, PlayerVerde4;
+    public static GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
+    public static GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
 
     // Tracking dos steps dos jogadores, aonde eles estão no mapa
 
-    public List<GameObject> MovimentacaoVermelhoBloco = new List<GameObject>();
-    public List<GameObject> MovimentacaoVerdeBloco = new List<GameObject>();
-    public List<GameObject> MovimentacaoAzulBloco = new List<GameObject>();
-    public List<GameObject> MovimentacaoAmareloBloco = new List<GameObject>();
+    //public List<GameObject> MovimentacaoVermelhoBloco = new List<GameObject>();
+    //public List<GameObject> MovimentacaoVerdeBloco = new List<GameObject>();
+    //public List<GameObject> MovimentacaoAzulBloco = new List<GameObject>();
+    //public List<GameObject> MovimentacaoAmareloBloco = new List<GameObject>();
 
 	public List<GameObject> CasasStars = new List<GameObject>();
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     public Button ButtonDado;
 
-    private int selectDadoAnimacao=0;
+    public int selectDadoAnimacao=0;
 
 	public GameObject Dados1Animacao;
 	public GameObject Dados2Animacao;
@@ -104,6 +104,7 @@ public class GameManager : MonoBehaviour
 		// Desativa o botão do dado
 		ButtonDado.interactable = false;
 
+		Debug.Log("Rodando o dado");
 		selectDadoAnimacao = randomNo.Next(1, 7);
 
 		switch (selectDadoAnimacao)
@@ -163,8 +164,72 @@ public class GameManager : MonoBehaviour
 				break;
 		}
 
+
+		if (selectDadoAnimacao != 6)
+		{
+			Debug.Log("Dado diferente de 6");
+			switch (CorJogadorVez())
+			{
+				case "vermelho":
+					AtualizaJogador(
+						VerificaPersonagemForaDaBase(
+							PlayerVermelho1,
+							PlayerVermelho2,
+							PlayerVermelho3,
+							PlayerVermelho4
+						)
+					);
+					Debug.Log("Dado diferente de 6 - caso vermelho");
+					break;
+				case "verde":
+					AtualizaJogador(
+						VerificaPersonagemForaDaBase(
+							PlayerVerde1,
+							PlayerVerde2,
+							PlayerVerde3,
+							PlayerVerde4
+						)
+					);
+					Debug.Log("Dado diferente de 6 - caso verde");
+					break;
+				case "azul":
+					AtualizaJogador(
+						VerificaPersonagemForaDaBase(
+							PlayerAzul1,
+							PlayerAzul2,
+							PlayerAzul3,
+							PlayerAzul4
+						)
+					);
+					Debug.Log("Dado diferente de 6 - caso azul");
+					break;
+				case "amarelo":
+					AtualizaJogador(
+						VerificaPersonagemForaDaBase(
+							PlayerAmarelo1,
+							PlayerAmarelo2,
+							PlayerAmarelo3,
+							PlayerAmarelo4
+						)
+					);
+					Debug.Log("Dado diferente de 6 - caso amarelo");
+					break;
+			}
+		} 
 	}
 
+	private bool VerificaPersonagemForaDaBase(GameObject Player1, GameObject Player2, GameObject Player3, GameObject Player4)
+    {
+		Debug.Log("verifica se tem personagem fora da base");
+		if (!Player1.GetComponent<PlayerScript>().Escolhido &&
+			!Player2.GetComponent<PlayerScript>().Escolhido &&
+			!Player3.GetComponent<PlayerScript>().Escolhido &&
+			!Player4.GetComponent<PlayerScript>().Escolhido)
+		{
+			ButtonDado.interactable = true;
+		}
+		return true;
+	}
 
 	private void Start()
 	{
@@ -219,22 +284,28 @@ public class GameManager : MonoBehaviour
 
 	private void VerificaLimiteMovimento(GameObject Player, ref int PlayerIndex)
     {
+		
 
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
 		
 		if (Player.GetComponent<PlayerScript>().caminhoIndex >
-		   PlayerIndex + selectDadoAnimacao)
+		   PlayerIndex + selectDadoAnimacao - 1)
 		{		
 			Player.GetComponent<PlayerScript>().moveAllowed = false;
 			PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
 
-
 			ButtonDado.interactable = true;
-			if(selectDadoAnimacao != 0)
+
+            if (selectDadoAnimacao != 0)
             {
-				AtualizaJogador(true);
-			}
+                AtualizaJogador(true);
+            }
+            Debug.Log("Verificando o limite de movimento do personagem");
+			Debug.Log("PlayerIndex " + PlayerIndex);
+			Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
 		}
+
+		
 	}
 
 	private void Update()
@@ -267,13 +338,16 @@ public class GameManager : MonoBehaviour
 		player.GetComponent<PlayerScript>().IniciaMovimento();	
 	}
 
-	private void AtualizaJogador(bool passaVez)
+	public void AtualizaJogador(bool passaVez)
     {
         if (passaVez)
         {
 			JogadorVez = (JogadorVez + 1) % 4;
 		}
+
 		JogadorText.text = (JogadorVez+1).ToString();
+
+		Debug.Log("AtualizaJogador " + JogadorVez);
 	}
 
 	public string CorJogadorVez()

@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 0bd84d4f67f33b5439a15b1a84fa5365, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -4609,7 +4609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 527.5491, y: 322.0184}
+  m_AnchoredPosition: {x: 527.5491, y: 301}
   m_SizeDelta: {x: 241.0982, y: 55.965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882645563
@@ -5805,253 +5805,10 @@ MonoBehaviour:
   PlayerAzul3Index: 0
   PlayerAzul4Index: 0
   PlayerVermelho1moveAllowed: 0
-  PlayerVerde1: {fileID: 1276210157}
-  PlayerVerde2: {fileID: 42777632}
-  PlayerVerde3: {fileID: 970776318}
-  PlayerVerde4: {fileID: 1920571115}
-  PlayerAzul1: {fileID: 535991339}
-  PlayerAzul2: {fileID: 1702298780}
-  PlayerAzul3: {fileID: 297268274}
-  PlayerAzul4: {fileID: 1847704920}
-  PlayerAmarelo1: {fileID: 2137039850}
-  PlayerAmarelo2: {fileID: 1166423646}
-  PlayerAmarelo3: {fileID: 1916908803}
-  PlayerAmarelo4: {fileID: 1956424079}
-  MovimentacaoVermelhoBloco:
-  - {fileID: 779669381}
-  - {fileID: 2091431385}
-  - {fileID: 4382852}
-  - {fileID: 1431496199}
-  - {fileID: 775915454}
-  - {fileID: 252601094}
-  - {fileID: 59427296}
-  - {fileID: 1267077644}
-  - {fileID: 1840874812}
-  - {fileID: 1683823269}
-  - {fileID: 1257260682}
-  - {fileID: 721527556}
-  - {fileID: 1494879996}
-  - {fileID: 1030909479}
-  - {fileID: 1167360158}
-  - {fileID: 2031185684}
-  - {fileID: 1087675166}
-  - {fileID: 932835555}
-  - {fileID: 246825441}
-  - {fileID: 1501302784}
-  - {fileID: 1464082393}
-  - {fileID: 815867618}
-  - {fileID: 2137333529}
-  - {fileID: 2075046674}
-  - {fileID: 309247362}
-  - {fileID: 1549954346}
-  - {fileID: 2066742290}
-  - {fileID: 2055366008}
-  - {fileID: 365650221}
-  - {fileID: 2114665513}
-  - {fileID: 1618754048}
-  - {fileID: 1294225500}
-  - {fileID: 2145552684}
-  - {fileID: 11787093}
-  - {fileID: 985855742}
-  - {fileID: 484823598}
-  - {fileID: 671806595}
-  - {fileID: 558067986}
-  - {fileID: 364275450}
-  - {fileID: 2056898628}
-  - {fileID: 2059979690}
-  - {fileID: 1669017169}
-  - {fileID: 903592068}
-  - {fileID: 1880061119}
-  - {fileID: 1047854039}
-  - {fileID: 1203910296}
-  - {fileID: 835623913}
-  - {fileID: 85554571}
-  - {fileID: 710570669}
-  - {fileID: 1110870409}
-  - {fileID: 2064248140}
-  - {fileID: 302429280}
-  - {fileID: 344872008}
-  - {fileID: 1465285133}
-  - {fileID: 1577270527}
-  - {fileID: 2030122731}
-  - {fileID: 525009303}
-  MovimentacaoVerdeBloco:
-  - {fileID: 1030909479}
-  - {fileID: 1167360158}
-  - {fileID: 2031185684}
-  - {fileID: 1087675166}
-  - {fileID: 932835555}
-  - {fileID: 246825441}
-  - {fileID: 1501302784}
-  - {fileID: 1464082393}
-  - {fileID: 815867618}
-  - {fileID: 2137333529}
-  - {fileID: 2075046674}
-  - {fileID: 309247362}
-  - {fileID: 1549954346}
-  - {fileID: 2066742290}
-  - {fileID: 2055366008}
-  - {fileID: 365650221}
-  - {fileID: 2114665513}
-  - {fileID: 1618754048}
-  - {fileID: 1294225500}
-  - {fileID: 2145552684}
-  - {fileID: 11787093}
-  - {fileID: 985855742}
-  - {fileID: 484823598}
-  - {fileID: 671806595}
-  - {fileID: 558067986}
-  - {fileID: 364275450}
-  - {fileID: 2056898628}
-  - {fileID: 2059979690}
-  - {fileID: 1669017169}
-  - {fileID: 903592068}
-  - {fileID: 1880061119}
-  - {fileID: 1047854039}
-  - {fileID: 1203910296}
-  - {fileID: 835623913}
-  - {fileID: 85554571}
-  - {fileID: 710570669}
-  - {fileID: 1110870409}
-  - {fileID: 2064248140}
-  - {fileID: 1826121363}
-  - {fileID: 779669381}
-  - {fileID: 2091431385}
-  - {fileID: 4382852}
-  - {fileID: 1431496199}
-  - {fileID: 775915454}
-  - {fileID: 252601094}
-  - {fileID: 59427296}
-  - {fileID: 1267077644}
-  - {fileID: 1840874812}
-  - {fileID: 1683823269}
-  - {fileID: 1257260682}
-  - {fileID: 721527556}
-  - {fileID: 853515831}
-  - {fileID: 1873137719}
-  - {fileID: 1280204947}
-  - {fileID: 243398386}
-  - {fileID: 1088548659}
-  - {fileID: 17087344}
-  MovimentacaoAzulBloco:
-  - {fileID: 2056898628}
-  - {fileID: 2059979690}
-  - {fileID: 1669017169}
-  - {fileID: 903592068}
-  - {fileID: 1880061119}
-  - {fileID: 1047854039}
-  - {fileID: 1203910296}
-  - {fileID: 835623913}
-  - {fileID: 85554571}
-  - {fileID: 710570669}
-  - {fileID: 1110870409}
-  - {fileID: 2064248140}
-  - {fileID: 1826121363}
-  - {fileID: 779669381}
-  - {fileID: 2091431385}
-  - {fileID: 4382852}
-  - {fileID: 1431496199}
-  - {fileID: 775915454}
-  - {fileID: 252601094}
-  - {fileID: 59427296}
-  - {fileID: 1267077644}
-  - {fileID: 1840874812}
-  - {fileID: 1683823269}
-  - {fileID: 1257260682}
-  - {fileID: 721527556}
-  - {fileID: 1494879996}
-  - {fileID: 1030909479}
-  - {fileID: 1167360158}
-  - {fileID: 2031185684}
-  - {fileID: 1087675166}
-  - {fileID: 932835555}
-  - {fileID: 246825441}
-  - {fileID: 1501302784}
-  - {fileID: 1464082393}
-  - {fileID: 815867618}
-  - {fileID: 2137333529}
-  - {fileID: 2075046674}
-  - {fileID: 309247362}
-  - {fileID: 1549954346}
-  - {fileID: 2066742290}
-  - {fileID: 2055366008}
-  - {fileID: 365650221}
-  - {fileID: 2114665513}
-  - {fileID: 1618754048}
-  - {fileID: 1294225500}
-  - {fileID: 2145552684}
-  - {fileID: 11787093}
-  - {fileID: 985855742}
-  - {fileID: 484823598}
-  - {fileID: 671806595}
-  - {fileID: 558067986}
-  - {fileID: 1439404392}
-  - {fileID: 1012990986}
-  - {fileID: 189567388}
-  - {fileID: 1280079419}
-  - {fileID: 1015724335}
-  - {fileID: 2074711649}
-  MovimentacaoAmareloBloco:
-  - {fileID: 2066742290}
-  - {fileID: 2055366008}
-  - {fileID: 365650221}
-  - {fileID: 2114665513}
-  - {fileID: 1618754048}
-  - {fileID: 1294225500}
-  - {fileID: 2145552684}
-  - {fileID: 11787093}
-  - {fileID: 985855742}
-  - {fileID: 484823598}
-  - {fileID: 671806595}
-  - {fileID: 558067986}
-  - {fileID: 364275450}
-  - {fileID: 2056898628}
-  - {fileID: 2059979690}
-  - {fileID: 903592068}
-  - {fileID: 1880061119}
-  - {fileID: 1047854039}
-  - {fileID: 1203910296}
-  - {fileID: 835623913}
-  - {fileID: 85554571}
-  - {fileID: 710570669}
-  - {fileID: 1110870409}
-  - {fileID: 2064248140}
-  - {fileID: 1826121363}
-  - {fileID: 779669381}
-  - {fileID: 2091431385}
-  - {fileID: 4382852}
-  - {fileID: 1431496199}
-  - {fileID: 775915454}
-  - {fileID: 252601094}
-  - {fileID: 59427296}
-  - {fileID: 1267077644}
-  - {fileID: 1840874812}
-  - {fileID: 1683823269}
-  - {fileID: 1257260682}
-  - {fileID: 721527556}
-  - {fileID: 1494879996}
-  - {fileID: 1030909479}
-  - {fileID: 1167360158}
-  - {fileID: 2031185684}
-  - {fileID: 1087675166}
-  - {fileID: 932835555}
-  - {fileID: 246825441}
-  - {fileID: 1501302784}
-  - {fileID: 1464082393}
-  - {fileID: 815867618}
-  - {fileID: 2137333529}
-  - {fileID: 2075046674}
-  - {fileID: 309247362}
-  - {fileID: 1549954346}
-  - {fileID: 1055983931}
-  - {fileID: 1061572209}
-  - {fileID: 1880205021}
-  - {fileID: 1424645268}
-  - {fileID: 1650733027}
-  - {fileID: 1088548659}
   CasasStars: []
   dado: {fileID: 1745497472}
   ButtonDado: {fileID: 1745497473}
+  selectDadoAnimacao: 0
   Dados1Animacao: {fileID: 1117051537}
   Dados2Animacao: {fileID: 2116515003}
   Dados3Animacao: {fileID: 831032389}
@@ -11285,7 +11042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 507, y: 256.64}
+  m_AnchoredPosition: {x: 507, y: 233}
   m_SizeDelta: {x: 200, y: 74.8017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917438354
