@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 	// identifica o jogador que deve jogar
 	public Text JogadorText;
 
-	// identifica qual é o jogador da vez ("que está jogando agora") 
+	// identifica qual ï¿½ o jogador da vez ("que estï¿½ jogando agora") 
 	public int JogadorVez=0;
 
 	// list com a cor de cada jogador
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public static GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
     public static GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
 
-    // Tracking dos steps dos jogadores, aonde eles estão no mapa
+    // Tracking dos steps dos jogadores, aonde eles estï¿½o no mapa
 
     //public List<GameObject> MovimentacaoVermelhoBloco = new List<GameObject>();
     //public List<GameObject> MovimentacaoVerdeBloco = new List<GameObject>();
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
 	}
 
 	//Verifica se o dado foi jogado.
-	//Um exemplo de aplicação é permitir escolher o jogador apenas depois de rodar o dado.
+	//Um exemplo de aplicaï¿½ï¿½o ï¿½ permitir escolher o jogador apenas depois de rodar o dado.
 	public bool VerificaSeDadoFoiJogado()
     {
 		return !ButtonDado.interactable;
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 	// Click on Roll Button on Dice UI
 	public void DiceRoll()
 	{
-		// Desativa o botão do dado
+		// Desativa o botï¿½o do dado
 		ButtonDado.interactable = false;
 
 		Debug.Log("Rodando o dado");
