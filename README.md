@@ -18,31 +18,3 @@ O jogo suporta 4 jogadores locais. Ao início de cada partida cada jogador poder
 Cada cor terá um poder especial que quando selecionado poderá ser utilizado no adversário desejado para interferir no percurso deste. Cada jogador tem um tempo limite 
 para realizar o seu movimento, caso contrário as suas ações ocorrem de forma randômica durante o turno. Assim, o time que conseguir trazer todos os seus integrantes 
 para a sala primeiro recebe a missão de prêmio.
-
-Mecânicas que serão implementadas
-
-Um dos maiores desafios da implementação das mecânicas do jogo é a aleatorização dos dados de forma que o lançamento seja o mais próximo possível de dados reais.
-Será necessário uma tela com as informações de status da partida, informando o turno do jogador, os pinos que chegaram no final, o lançamento dos dados e a tela de vitória.
-O jogo possuirá as seguintes mecânicas:
-    Cada cor possui uma habilidade;
-    Possíveis poderes:
-      Mover um pino para frente.
-      Mover um pino para trás.
-      Pular a jogada de algum jogador.
-      Inverter a ordem de jogada.
-      Mover um pino para o início.
-      Mover um pino para uma casa aleatória.
-    Encontrar um algoritmo para deixar o dado aleatório;
-    Tabuleiro 15x15;
-    Checkpoints;
-    Cada personagem só pode mover os seus pinos, com exceção quando utilizado as habilidades;
-    Construção da lógica:
-      Jogador só sai do início se tirar o nº 6 e depois joga o dado novamente;
-      Se o jogador tiver pelo menos um pino fora do início e tirar 6, poderá jogar novamente;
-      Caso um pino sobreponha outro que não seja do mesmo jogador (mesma cor), o outro pino retorna para o início e o dado será jogado novamente;
-      Contador de pinos que chegarem ao final do trajeto;
-    No final, para o pino alcançar o objetivo, o número tem que ser igual ou menor do que o número de casas restantes. Ex: se o último pino/personagem está à 3 casas do objetivo, qualquer número maior que 3 implicará na perda da jogada;
-    Lógica dos poderes:
-      Cooldown: a cada “x” turnos, o poder pode ser ativado.
-      Todos os jogadores possuem habilidades básicas e uma avançada (cada cor uma habilidade específica).
-
