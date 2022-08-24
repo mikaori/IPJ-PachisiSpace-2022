@@ -18,3 +18,9 @@ O jogo suporta 4 jogadores locais. Ao início de cada partida cada jogador poder
 Cada cor terá um poder especial que quando selecionado poderá ser utilizado no adversário desejado para interferir no percurso deste. Cada jogador tem um tempo limite 
 para realizar o seu movimento, caso contrário as suas ações ocorrem de forma randômica durante o turno. Assim, o time que conseguir trazer todos os seus integrantes 
 para a sala primeiro recebe a missão de prêmio.
+
+Youtube:
+https://youtu.be/2rTtD1d7qn8
+
+Apresentação:
+https://www.canva.com/design/DAFIHpJEvvw/24EziIRCQ-cIQV_QebrBzw/view?utm_content=DAFIHpJEvvw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
