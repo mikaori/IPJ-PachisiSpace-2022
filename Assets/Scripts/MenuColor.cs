@@ -24,7 +24,7 @@ public class MenuColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        title.text = "Jogador " + (jogadorEscolheu.Count + 1).ToString();
+        //title.text = "Jogador " + (jogadorEscolheu.Count + 1).ToString();
     }
 
     private bool verificaEscolhaAcabou()
