@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -75,19 +77,6 @@ public class GameManager : MonoBehaviour
 		return list;
     }
 
-	void InitializeDice()
-	{
-		ButtonDado.interactable = true;
-
-		Dados1Animacao.SetActive(false);
-		Dados2Animacao.SetActive(false);
-		Dados3Animacao.SetActive(false);
-		Dados4Animacao.SetActive(false);
-		Dados5Animacao.SetActive(false);
-		Dados6Animacao.SetActive(false);
-
-	}
-
 	//Verifica se o dado foi jogado.
 	//Um exemplo de aplica��o � permitir escolher o jogador apenas depois de rodar o dado.
 	public bool VerificaSeDadoFoiJogado()
@@ -160,7 +149,6 @@ public class GameManager : MonoBehaviour
 				Dados6Animacao.SetActive(true);
 				break;
 		}
-
 
 		if (selectDadoAnimacao != 6)
 		{
@@ -290,10 +278,12 @@ public class GameManager : MonoBehaviour
 
 	private void VerificaLimiteMovimento(GameObject Player, ref int PlayerIndex)
     {
-		
+		int CaminhoFinal = Player.GetComponent<PlayerScript>().caminho.Length - Player.GetComponent<PlayerScript>().caminhoIndex;
+
 		// se o personagem ainda não tiver sido escolhido, então não faz nada
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
 
+		// mover o personagem para a primeira casa caso tenha tirado 6
         if (Player.GetComponent<PlayerScript>().caminhoIndex > PlayerIndex && Player.GetComponent<PlayerScript>().EmJogo == false)
         {
             Player.GetComponent<PlayerScript>().moveAllowed = false;
@@ -308,8 +298,12 @@ public class GameManager : MonoBehaviour
             }
 
             Player.GetComponent<PlayerScript>().EmJogo = true;
-			Debug.Log("aaaaaaaaaaaaaaaaaaaaaaa");
-        }// verifica se o personagem já moveu o tanto que apareceu no dado
+			Debug.Log("Caminho final PI " + CaminhoFinal);
+			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
+			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
+			Debug.Log("Player index " + PlayerIndex);
+
+		}// verifica se o personagem já moveu o tanto que apareceu no dado
         else if (Player.GetComponent<PlayerScript>().caminhoIndex >
 		   PlayerIndex + selectDadoAnimacao)
 		{		
@@ -327,6 +321,15 @@ public class GameManager : MonoBehaviour
 			Debug.Log("Verificando o limite de movimento do personagem");
 			Debug.Log("PlayerIndex " + PlayerIndex);
 			Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
+
+			Debug.Log("Caminho final PI " + CaminhoFinal);
+			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
+			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
+			Debug.Log("Player index " + PlayerIndex);
+		}
+		else if (Player.GetComponent<PlayerScript>().caminhoIndex > Player.GetComponent<PlayerScript>().caminho.Length)
+        {
+			SceneManager.LoadScene(4);
 		}
 
 		

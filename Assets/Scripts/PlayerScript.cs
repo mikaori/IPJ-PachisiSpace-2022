@@ -67,7 +67,12 @@ public class PlayerScript : MonoBehaviour
         if (GameManager.Instance.CorJogadorVez() == Cor 
             && GameManager.Instance.VerificaSeDadoFoiJogado()) 
         {
-            if (Escolhido) LiberaPersonagem();
+            if (Escolhido)
+            {
+                bool TemEspacoParaAndar = GameManager.Instance.selectDadoAnimacao <= caminho.Length - caminhoIndex;
+                if (TemEspacoParaAndar) LiberaPersonagem();
+                else GameManager.Instance.AtualizaJogador(true);
+            }
             else if (!Escolhido && GameManager.Instance.selectDadoAnimacao == 6)
             {
                 Debug.Log("Conseguiu sair");
