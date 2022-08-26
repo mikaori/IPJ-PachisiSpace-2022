@@ -15,26 +15,17 @@ public class GameManager : MonoBehaviour
 	//private List<string> jogadorEscolheu = MenuColor.jogadorEscolheu;
 	private List<string> jogadorEscolheu = gambiList();
 
-	public Vector3 PlayerVermelho1Pos, PlayerVermelho2Pos, PlayerVermelho3Pos, PlayerVermelho4Pos;
+	// Armazena a posição de cada personagem dos jogadores
 	public int PlayerVermelho1Index = 0, PlayerVermelho2Index = 0, PlayerVermelho3Index = 0, PlayerVermelho4Index = 0;
 	public int PlayerAmarelo1Index = 0, PlayerAmarelo2Index = 0, PlayerAmarelo3Index = 0, PlayerAmarelo4Index = 0;
 	public int PlayerVerde1Index = 0, PlayerVerde2Index = 0, PlayerVerde3Index = 0, PlayerVerde4Index = 0;
 	public int PlayerAzul1Index = 0, PlayerAzul2Index = 0, PlayerAzul3Index = 0, PlayerAzul4Index = 0;
-
-	public bool PlayerVermelho1moveAllowed;
 
 	// Controle do movimento dos jogadores
 	public static GameObject PlayerVermelho1, PlayerVermelho2, PlayerVermelho3, PlayerVermelho4;
     public static GameObject PlayerVerde1, PlayerVerde2, PlayerVerde3, PlayerVerde4;
     public static GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
     public static GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
-
-    // Tracking dos steps dos jogadores, aonde eles est�o no mapa
-
-    //public List<GameObject> MovimentacaoVermelhoBloco = new List<GameObject>();
-    //public List<GameObject> MovimentacaoVerdeBloco = new List<GameObject>();
-    //public List<GameObject> MovimentacaoAzulBloco = new List<GameObject>();
-    //public List<GameObject> MovimentacaoAmareloBloco = new List<GameObject>();
 
 	public List<GameObject> CasasStars = new List<GameObject>();
 
@@ -44,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public int selectDadoAnimacao=0;
 
+	public GameObject DadosJogarTxt;
 	public GameObject Dados1Animacao;
 	public GameObject Dados2Animacao;
 	public GameObject Dados3Animacao;
@@ -55,6 +47,11 @@ public class GameManager : MonoBehaviour
 	private System.Random randomNo;
 
 	private static GameManager instance = null;
+
+	// flag para validar se pode ou não passar a vez do jogador
+	// caso true representa que o jogador esta em uma condição de selecionar um personagem
+	// e mover porem não vai ser trocado o jogador pois ele não selecionou o personagem ainda
+	private bool flagAtualizaJogador = false;
 
 	public static GameManager Instance
     {
@@ -215,7 +212,10 @@ public class GameManager : MonoBehaviour
 					Debug.Log("Dado diferente de 6 - caso amarelo");
 					break;
 			}
-		} 
+		} else if (selectDadoAnimacao == 6)
+        {
+			flagAtualizaJogador = true;
+		}
 	}
 
 	private bool VerificaPersonagemForaDaBase(GameObject Player1, GameObject Player2, GameObject Player3, GameObject Player4)
@@ -227,8 +227,13 @@ public class GameManager : MonoBehaviour
 			!Player4.GetComponent<PlayerScript>().Escolhido)
 		{
 			ButtonDado.interactable = true;
+			return true;
 		}
-		return true;
+
+		flagAtualizaJogador = true;
+
+		return false;
+		
 	}
 
 	private void Start()
@@ -286,9 +291,10 @@ public class GameManager : MonoBehaviour
 	private void VerificaLimiteMovimento(GameObject Player, ref int PlayerIndex)
     {
 		
-
+		// se o personagem ainda não tiver sido escolhido, então não faz nada
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
 		
+		// verifica se o personagem já movei o tanto que apareceu no dado
 		if (Player.GetComponent<PlayerScript>().caminhoIndex >
 		   PlayerIndex + selectDadoAnimacao - 1)
 		{		
@@ -297,11 +303,13 @@ public class GameManager : MonoBehaviour
 
 			ButtonDado.interactable = true;
 
-            if (selectDadoAnimacao != 0)
-            {
-                AtualizaJogador(true);
-            }
-            Debug.Log("Verificando o limite de movimento do personagem");
+			if (flagAtualizaJogador == true)
+			{
+				AtualizaJogador(true);
+				flagAtualizaJogador = false;
+			}
+
+			Debug.Log("Verificando o limite de movimento do personagem");
 			Debug.Log("PlayerIndex " + PlayerIndex);
 			Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
 		}
@@ -341,7 +349,9 @@ public class GameManager : MonoBehaviour
 
 	public void AtualizaJogador(bool passaVez)
     {
-        if (passaVez)
+		DadosJogarTxt.SetActive(true);
+
+		if (passaVez)
         {
 			JogadorVez = (JogadorVez + 1) % 4;
 		}
@@ -353,6 +363,7 @@ public class GameManager : MonoBehaviour
 
 	public string CorJogadorVez()
     {
+		Debug.Log("Cor jogador da vez" + jogadorEscolheu[JogadorVez]);
 		return jogadorEscolheu[JogadorVez];
     }
 	

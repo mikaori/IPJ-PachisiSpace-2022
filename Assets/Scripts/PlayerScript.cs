@@ -45,10 +45,10 @@ public class PlayerScript : MonoBehaviour
                 caminhoIndex += 1;
             }
             Debug.Log("Movendo Personagem");
-            Debug.Log("caminho"+ caminhoIndex);
+            Debug.Log("caminho" + caminhoIndex);
             Debug.Log("caminho.length" + caminho.Length);
-            Debug.Log("caminho transform"+caminho[caminhoIndex].transform.position);
-            Debug.Log("caminho transform"+transform.position);
+            Debug.Log("caminho transform" + caminho[caminhoIndex].transform.position);
+            Debug.Log("caminho transform" + transform.position);
         }
     }
 
