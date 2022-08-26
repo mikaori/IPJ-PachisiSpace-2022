@@ -5228,10 +5228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JogadorText: {fileID: 1917438354}
   JogadorVez: 0
-  PlayerVermelho1Pos: {x: 0, y: 0, z: 0}
-  PlayerVermelho2Pos: {x: 0, y: 0, z: 0}
-  PlayerVermelho3Pos: {x: 0, y: 0, z: 0}
-  PlayerVermelho4Pos: {x: 0, y: 0, z: 0}
   PlayerVermelho1Index: 0
   PlayerVermelho2Index: 0
   PlayerVermelho3Index: 0
@@ -5248,11 +5244,11 @@ MonoBehaviour:
   PlayerAzul2Index: 0
   PlayerAzul3Index: 0
   PlayerAzul4Index: 0
-  PlayerVermelho1moveAllowed: 0
   CasasStars: []
   dado: {fileID: 1745497472}
   ButtonDado: {fileID: 1745497473}
   selectDadoAnimacao: 0
+  DadosJogarTxt: {fileID: 496328748}
   Dados1Animacao: {fileID: 1117051537}
   Dados2Animacao: {fileID: 2116515003}
   Dados3Animacao: {fileID: 831032389}

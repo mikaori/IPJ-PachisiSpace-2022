@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
 
     public string Cor;
 
+    public bool EmJogo = false;
+
     // Use this for initialization
     private void Start()
     {

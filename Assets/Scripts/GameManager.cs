@@ -293,10 +293,25 @@ public class GameManager : MonoBehaviour
 		
 		// se o personagem ainda não tiver sido escolhido, então não faz nada
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
-		
-		// verifica se o personagem já movei o tanto que apareceu no dado
-		if (Player.GetComponent<PlayerScript>().caminhoIndex >
-		   PlayerIndex + selectDadoAnimacao - 1)
+
+        if (Player.GetComponent<PlayerScript>().caminhoIndex > PlayerIndex && Player.GetComponent<PlayerScript>().EmJogo == false)
+        {
+            Player.GetComponent<PlayerScript>().moveAllowed = false;
+            PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
+
+            ButtonDado.interactable = true;
+
+            if (flagAtualizaJogador == true)
+            {
+                AtualizaJogador(true);
+                flagAtualizaJogador = false;
+            }
+
+            Player.GetComponent<PlayerScript>().EmJogo = true;
+			Debug.Log("aaaaaaaaaaaaaaaaaaaaaaa");
+        }// verifica se o personagem já moveu o tanto que apareceu no dado
+        else if (Player.GetComponent<PlayerScript>().caminhoIndex >
+		   PlayerIndex + selectDadoAnimacao)
 		{		
 			Player.GetComponent<PlayerScript>().moveAllowed = false;
 			PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
@@ -367,4 +382,7 @@ public class GameManager : MonoBehaviour
 		return jogadorEscolheu[JogadorVez];
     }
 	
+	public void VerificaVencedores()
+    {
+    }
 }
