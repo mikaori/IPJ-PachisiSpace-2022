@@ -46,6 +46,7 @@ public class PlayerScript : MonoBehaviour
             {
                 caminhoIndex += 1;
             }
+
             Debug.Log("Movendo Personagem");
             Debug.Log("caminho" + caminhoIndex);
             Debug.Log("caminho.length" + caminho.Length);
@@ -87,8 +88,6 @@ public class PlayerScript : MonoBehaviour
                 LiberaPersonagem();
             }
         }
-
-        //Atualiza jogador da vez
     }
 
     public void IniciaMovimento()

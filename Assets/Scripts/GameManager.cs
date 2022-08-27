@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     public static GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
     public static GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
 
+	private int ContaVencedoresVermelhos = 0, ContaVencedoresVerdes = 0, ContaVencedoresAmarelos = 0, ContaVencedoresAzuis = 0;
+
 	public List<GameObject> CasasStars = new List<GameObject>();
 
 	public Transform dado;
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
 	// caso true representa que o jogador esta em uma condição de selecionar um personagem
 	// e mover porem não vai ser trocado o jogador pois ele não selecionou o personagem ainda
 	private bool flagAtualizaJogador = false;
+
+	private bool flagContaVencedor = false;
 
 	public static GameManager Instance
     {
@@ -91,6 +95,8 @@ public class GameManager : MonoBehaviour
 	{
 		// Desativa o bot�o do dado
 		ButtonDado.interactable = false;
+
+		flagContaVencedor = true;
 
 		Debug.Log("Rodando o dado");
 		selectDadoAnimacao = randomNo.Next(1, 7);
@@ -329,12 +335,38 @@ public class GameManager : MonoBehaviour
 			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
 			Debug.Log("Player index " + PlayerIndex);
 		}
-		else if (Player.GetComponent<PlayerScript>().caminhoIndex > Player.GetComponent<PlayerScript>().caminho.Length)
+		else if (Player.GetComponent<PlayerScript>().caminhoIndex >= Player.GetComponent<PlayerScript>().caminho.Length)
         {
-			SceneManager.LoadScene(nextScene);
-		}
+			if (flagContaVencedor == true)
+			{
+				Debug.Log("Verifica jogadores");
+				switch (CorJogadorVez())
+				{
+					case "vermelho":
+						ContaVencedoresVermelhos++;
+						Debug.Log("Conta vencedores vermelho");
+						break;
+					case "verde":
+						ContaVencedoresVerdes++;
+						Debug.Log("Conta vencedores verde");
+						break;
+					case "azul":
+						ContaVencedoresAzuis++;
+						Debug.Log("Conta vencedores azul");
+						break;
+					case "amarelo":
+						ContaVencedoresAmarelos++;
+						Debug.Log("Conta vencedores amarelo");
+						break;
+				}
+				flagContaVencedor = false;
+			}
 
-		
+			if(ContaVencedoresVermelhos == 4 || ContaVencedoresVerdes == 4 || ContaVencedoresAzuis == 4 || ContaVencedoresAmarelos == 4)
+            {
+				SceneManager.LoadScene(nextScene);
+			}
+		}
 	}
 
 	private void Update()
