@@ -70,8 +70,16 @@ public class PlayerScript : MonoBehaviour
             if (Escolhido)
             {
                 bool TemEspacoParaAndar = GameManager.Instance.selectDadoAnimacao <= caminho.Length - caminhoIndex;
-                if (TemEspacoParaAndar) LiberaPersonagem();
-                else GameManager.Instance.AtualizaJogador(true);
+
+                if (TemEspacoParaAndar)
+                {
+                    LiberaPersonagem();
+                }
+                else
+                {
+                    GameManager.Instance.ButtonDado.interactable = true;
+                    GameManager.Instance.AtualizaJogador(true);
+                }
             }
             else if (!Escolhido && GameManager.Instance.selectDadoAnimacao == 6)
             {

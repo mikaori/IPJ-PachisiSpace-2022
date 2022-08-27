@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	[SerializeField] private string nextScene;
+
 	// identifica o jogador que deve jogar
 	public Text JogadorText;
 
@@ -329,7 +331,7 @@ public class GameManager : MonoBehaviour
 		}
 		else if (Player.GetComponent<PlayerScript>().caminhoIndex > Player.GetComponent<PlayerScript>().caminho.Length)
         {
-			SceneManager.LoadScene(4);
+			SceneManager.LoadScene(nextScene);
 		}
 
 		
