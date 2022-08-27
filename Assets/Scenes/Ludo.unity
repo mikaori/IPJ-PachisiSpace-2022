@@ -1061,12 +1061,12 @@ MonoBehaviour:
   - {fileID: 710570670}
   - {fileID: 1110870410}
   - {fileID: 2064248141}
-  - {fileID: 1826121364}
-  - {fileID: 779669382}
-  - {fileID: 2091431386}
-  - {fileID: 4382853}
-  - {fileID: 1431496200}
-  - {fileID: 775915455}
+  - {fileID: 302429281}
+  - {fileID: 344872009}
+  - {fileID: 1465285134}
+  - {fileID: 1577270528}
+  - {fileID: 2030122732}
+  - {fileID: 525009304}
   moveSpeed: 90
   caminhoIndex: 0
   moveAllowed: 0
