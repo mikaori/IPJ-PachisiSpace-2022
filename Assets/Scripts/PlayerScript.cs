@@ -21,6 +21,8 @@ public class PlayerScript : MonoBehaviour
 
     public bool EmJogo = false;
 
+    public Transform CasaInicial;
+
     // Use this for initialization
     private void Start()
     {
@@ -92,13 +94,25 @@ public class PlayerScript : MonoBehaviour
 
     public void IniciaMovimento()
     {
-        
         if(Escolhido == true)
         {
             moveAllowed = true;
         }
-
     }
 
+    public bool JogadorNaMesmaCasa(PlayerScript otherPlayer)
+    {
+        if (Cor == otherPlayer.Cor) return false;
+        return (Vector2.Distance(transform.position, otherPlayer.transform.position) < 0.1);
+    }
+
+    public void ResetPlayer()
+    {
+        transform.position = CasaInicial.position;
+        caminhoIndex = 0;
+        moveAllowed = false;
+        Escolhido = false;
+        EmJogo = false;
+    }
 
 }

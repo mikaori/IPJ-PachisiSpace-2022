@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
 
 	private bool flagContaVencedor = false;
 
+	private List<GameObject> ListaDePlayers = new List<GameObject>();
+
 	public static GameManager Instance
     {
         get
@@ -99,7 +101,8 @@ public class GameManager : MonoBehaviour
 		flagContaVencedor = true;
 
 		Debug.Log("Rodando o dado");
-		selectDadoAnimacao = randomNo.Next(1, 7);
+		selectDadoAnimacao = randomNo.Next(1, 12);
+		if(selectDadoAnimacao > 6 ) selectDadoAnimacao = 6;
 
 		switch (selectDadoAnimacao)
 		{
@@ -264,6 +267,24 @@ public class GameManager : MonoBehaviour
 		PlayerAzul3 = GameObject.Find("Azul-3");
 		PlayerAzul4 = GameObject.Find("Azul-4");
 
+		ListaDePlayers.Add(PlayerVermelho1);
+		ListaDePlayers.Add(PlayerVermelho2);
+		ListaDePlayers.Add(PlayerVermelho3);
+		ListaDePlayers.Add(PlayerVermelho4);
+		ListaDePlayers.Add(PlayerAmarelo1);
+		ListaDePlayers.Add(PlayerAmarelo2);
+		ListaDePlayers.Add(PlayerAmarelo3);
+		ListaDePlayers.Add(PlayerAmarelo4);
+		ListaDePlayers.Add(PlayerVerde1);
+		ListaDePlayers.Add(PlayerVerde2);
+		ListaDePlayers.Add(PlayerVerde3);
+		ListaDePlayers.Add(PlayerVerde4);
+		ListaDePlayers.Add(PlayerAzul1);
+		ListaDePlayers.Add(PlayerAzul2);
+		ListaDePlayers.Add(PlayerAzul3);
+		ListaDePlayers.Add(PlayerAzul4);
+
+		// adicionando um listener em cada um dos personagens
 		PlayerVermelho1.GetComponent<Button>().onClick.AddListener(() => PlayerVermelho1.GetComponent<PlayerScript>().FoiClicado());
 		PlayerVermelho2.GetComponent<Button>().onClick.AddListener(() => PlayerVermelho2.GetComponent<PlayerScript>().FoiClicado());
 		PlayerVermelho3.GetComponent<Button>().onClick.AddListener(() => PlayerVermelho3.GetComponent<PlayerScript>().FoiClicado());
@@ -306,10 +327,10 @@ public class GameManager : MonoBehaviour
             }
 
             Player.GetComponent<PlayerScript>().EmJogo = true;
-			Debug.Log("Caminho final PI " + CaminhoFinal);
+			/*Debug.Log("Caminho final PI " + CaminhoFinal);
 			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
 			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
-			Debug.Log("Player index " + PlayerIndex);
+			Debug.Log("Player index " + PlayerIndex);*/
 
 		}// verifica se o personagem já moveu o tanto que apareceu no dado
         else if (Player.GetComponent<PlayerScript>().caminhoIndex >
@@ -324,16 +345,18 @@ public class GameManager : MonoBehaviour
 			{
 				AtualizaJogador(true);
 				flagAtualizaJogador = false;
+				VerificaSeTemDoisJogadoresJuntos(Player, ListaDePlayers);
+				PlayerIndex = 0;
 			}
 
-			Debug.Log("Verificando o limite de movimento do personagem");
+			/*Debug.Log("Verificando o limite de movimento do personagem");
 			Debug.Log("PlayerIndex " + PlayerIndex);
 			Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
 
 			Debug.Log("Caminho final PI " + CaminhoFinal);
 			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
 			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
-			Debug.Log("Player index " + PlayerIndex);
+			Debug.Log("Player index " + PlayerIndex);*/
 		}
 		else if (Player.GetComponent<PlayerScript>().caminhoIndex >= Player.GetComponent<PlayerScript>().caminho.Length)
         {
@@ -344,19 +367,19 @@ public class GameManager : MonoBehaviour
 				{
 					case "vermelho":
 						ContaVencedoresVermelhos++;
-						Debug.Log("Conta vencedores vermelho");
+						Debug.Log("Conta vencedores vermelho " + ContaVencedoresVermelhos);
 						break;
 					case "verde":
 						ContaVencedoresVerdes++;
-						Debug.Log("Conta vencedores verde");
+						Debug.Log("Conta vencedores verde " + ContaVencedoresVerdes);
 						break;
 					case "azul":
 						ContaVencedoresAzuis++;
-						Debug.Log("Conta vencedores azul");
+						Debug.Log("Conta vencedores azul " + ContaVencedoresAzuis);
 						break;
 					case "amarelo":
 						ContaVencedoresAmarelos++;
-						Debug.Log("Conta vencedores amarelo");
+						Debug.Log("Conta vencedores amarelo" + ContaVencedoresAmarelos);
 						break;
 				}
 				flagContaVencedor = false;
@@ -419,7 +442,19 @@ public class GameManager : MonoBehaviour
 		return jogadorEscolheu[JogadorVez];
     }
 	
-	public void VerificaVencedores()
+	public bool VerificaSeTemDoisJogadoresJuntos(GameObject PlayerGO, List<GameObject> ListPlayers)
     {
-    }
+		PlayerScript Player = PlayerGO.GetComponent<PlayerScript>();
+
+		foreach (GameObject OtherPlayerGO in ListPlayers)
+        {
+			PlayerScript OtherPlayer = OtherPlayerGO.GetComponent<PlayerScript>();
+
+			if (Player.JogadorNaMesmaCasa(OtherPlayer))
+            {
+				OtherPlayer.ResetPlayer();
+            }
+		}
+		return true;
+	}
 }
