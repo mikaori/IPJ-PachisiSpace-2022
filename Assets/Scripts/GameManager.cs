@@ -418,7 +418,7 @@ public class GameManager : MonoBehaviour
 			JogadorVez = (JogadorVez + 1) % 4;
 		}
 
-		JogadorText.text = (JogadorVez+1).ToString();
+		JogadorText.text = (JogadorVez+1).ToString() + " " + jogadorEscolheu[JogadorVez];
 
 		//Debug.Log("AtualizaJogador " + JogadorVez);
 	}

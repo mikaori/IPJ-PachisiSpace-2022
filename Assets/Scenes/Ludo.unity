@@ -4578,8 +4578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 527.5491, y: 301}
-  m_SizeDelta: {x: 241.0982, y: 55.965}
+  m_AnchoredPosition: {x: 580.13, y: 301}
+  m_SizeDelta: {x: 439.73, y: 55.965}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882645563
 MonoBehaviour:
@@ -4608,7 +4608,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5791,7 +5791,6 @@ MonoBehaviour:
   PlayerAzul2Index: 0
   PlayerAzul3Index: 0
   PlayerAzul4Index: 0
-  CasasStars: []
   dado: {fileID: 1745497472}
   ButtonDado: {fileID: 1745497473}
   selectDadoAnimacao: 0
@@ -5802,6 +5801,7 @@ MonoBehaviour:
   Dados4Animacao: {fileID: 687797251}
   Dados5Animacao: {fileID: 1442659920}
   Dados6Animacao: {fileID: 1607603793}
+  ListaDePlayers: []
 --- !u!1 &1060968775
 GameObject:
   m_ObjectHideFlags: 0
@@ -11395,8 +11395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 507, y: 233}
-  m_SizeDelta: {x: 200, y: 74.8017}
+  m_AnchoredPosition: {x: 580.1328, y: 233}
+  m_SizeDelta: {x: 439.7346, y: 74.8017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917438354
 MonoBehaviour:
