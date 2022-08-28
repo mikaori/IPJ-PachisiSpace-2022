@@ -603,8 +603,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33, y: 0.0000076294}
-  m_SizeDelta: {x: 249.81, y: 40.9763}
+  m_AnchoredPosition: {x: -0.000015259, y: -10.243}
+  m_SizeDelta: {x: 478.7022, y: 40.9763}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &769028388
 MonoBehaviour:
@@ -633,13 +633,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 75
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Vencedor 1
+  m_Text: JOGADOR
 --- !u!222 &769028389
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1651,6 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab7900fba7fa0547b8f3f737221887f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VencedorTxt: {fileID: 769028388}
 --- !u!1001 &5735842068411459660
 PrefabInstance:
   m_ObjectHideFlags: 0

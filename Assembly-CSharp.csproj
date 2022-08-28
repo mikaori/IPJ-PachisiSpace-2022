@@ -59,7 +59,7 @@
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\WinnerScript.cs" />
+    <Compile Include="Assets\Scripts\FinalManager.cs" />
     <Compile Include="Assets\Scripts\EfeitoMaquinaEscrever.cs" />
     <Compile Include="Assets\Scripts\PularScene.cs" />
     <Compile Include="Assets\Scripts\MenuColor.cs" />

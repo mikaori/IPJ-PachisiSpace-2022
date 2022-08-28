@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
 	public int JogadorVez=0;
 
 	// list com a cor de cada jogador
-	//private List<string> jogadorEscolheu = MenuColor.jogadorEscolheu;
-	private List<string> jogadorEscolheu = gambiList();
+	private List<string> jogadorEscolheu = MenuColor.jogadorEscolheu;
+	//private List<string> jogadorEscolheu = gambiList();
 
 	// Armazena a posição de cada personagem dos jogadores
 	public int PlayerVermelho1Index = 0, PlayerVermelho2Index = 0, PlayerVermelho3Index = 0, PlayerVermelho4Index = 0;
@@ -55,7 +55,9 @@ public class GameManager : MonoBehaviour
 	// e mover porem não vai ser trocado o jogador pois ele não selecionou o personagem ainda
 	private bool flagAtualizaJogador = false;
 
-	private List<GameObject> ListaDePlayers = new List<GameObject>();
+	public List<GameObject> ListaDePlayers = new List<GameObject>();
+
+	public Dictionary<string, int> ContagemNaUltimaCasa = new Dictionary<string, int>();
 
 	public static GameManager Instance
     {
@@ -229,7 +231,6 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
-
 		QualitySettings.vSyncCount = 1;
 		Application.targetFrameRate = 30;
 
@@ -355,7 +356,6 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
     {
-
 		VerificaLimiteMovimento(PlayerVermelho1, ref PlayerVermelho1Index);
 		VerificaLimiteMovimento(PlayerVermelho2, ref PlayerVermelho2Index);
 		VerificaLimiteMovimento(PlayerVermelho3, ref PlayerVermelho3Index);
@@ -379,14 +379,11 @@ public class GameManager : MonoBehaviour
 		if(VerificaFinalJogo())
         {
 			SceneManager.LoadScene(nextScene);
-		}
-		
+		}	
 	}
 
 	private bool VerificaFinalJogo()
     {
-		Dictionary<string, int> ContagemNaUltimaCasa = new Dictionary<string, int>();
-
 		foreach(GameObject Player in ListaDePlayers)
         {
 			PlayerScript PlayerScript = Player.GetComponent<PlayerScript>();
