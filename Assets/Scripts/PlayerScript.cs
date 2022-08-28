@@ -49,11 +49,11 @@ public class PlayerScript : MonoBehaviour
                 caminhoIndex += 1;
             }
 
-            Debug.Log("Movendo Personagem");
+            /*Debug.Log("Movendo Personagem");
             Debug.Log("caminho" + caminhoIndex);
             Debug.Log("caminho.length" + caminho.Length);
             Debug.Log("caminho transform" + caminho[caminhoIndex].transform.position);
-            Debug.Log("caminho transform" + transform.position);
+            Debug.Log("caminho transform" + transform.position);*/
         }
     }
 
@@ -62,7 +62,7 @@ public class PlayerScript : MonoBehaviour
         Escolhido = true;
         moveAllowed = true;
 
-        Debug.Log ("Liberando Personagem");
+        //Debug.Log ("Liberando Personagem");
     }
 
     public void FoiClicado()
@@ -86,7 +86,7 @@ public class PlayerScript : MonoBehaviour
             }
             else if (!Escolhido && GameManager.Instance.selectDadoAnimacao == 6)
             {
-                Debug.Log("Conseguiu sair");
+                //Debug.Log("Conseguiu sair");
                 LiberaPersonagem();
             }
         }
@@ -114,5 +114,11 @@ public class PlayerScript : MonoBehaviour
         Escolhido = false;
         EmJogo = false;
     }
+
+    public bool EstaNaUltimaCasa()
+    {
+        return caminhoIndex == caminho.Length;
+    }
+
 
 }

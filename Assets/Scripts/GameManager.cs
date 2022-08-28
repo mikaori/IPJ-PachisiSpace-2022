@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
 		flagContaVencedor = true;
 
-		Debug.Log("Rodando o dado");
+		//Debug.Log("Rodando o dado");
 		selectDadoAnimacao = randomNo.Next(1, 12);
 		if(selectDadoAnimacao > 6 ) selectDadoAnimacao = 6;
 
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
 
 		if (selectDadoAnimacao != 6)
 		{
-			Debug.Log("Dado diferente de 6");
+			//Debug.Log("Dado diferente de 6");
 			switch (CorJogadorVez())
 			{
 				case "vermelho":
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
 							PlayerVermelho4
 						)
 					);
-					Debug.Log("Dado diferente de 6 - caso vermelho");
+					//Debug.Log("Dado diferente de 6 - caso vermelho");
 					break;
 				case "verde":
 					AtualizaJogador(
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
 							PlayerVerde4
 						)
 					);
-					Debug.Log("Dado diferente de 6 - caso verde");
+					//Debug.Log("Dado diferente de 6 - caso verde");
 					break;
 				case "azul":
 					AtualizaJogador(
@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
 							PlayerAzul4
 						)
 					);
-					Debug.Log("Dado diferente de 6 - caso azul");
+					//Debug.Log("Dado diferente de 6 - caso azul");
 					break;
 				case "amarelo":
 					AtualizaJogador(
@@ -208,7 +208,7 @@ public class GameManager : MonoBehaviour
 							PlayerAmarelo4
 						)
 					);
-					Debug.Log("Dado diferente de 6 - caso amarelo");
+					//Debug.Log("Dado diferente de 6 - caso amarelo");
 					break;
 			}
 		} else if (selectDadoAnimacao == 6)
@@ -219,7 +219,7 @@ public class GameManager : MonoBehaviour
 
 	private bool VerificaPersonagemForaDaBase(GameObject Player1, GameObject Player2, GameObject Player3, GameObject Player4)
     {
-		Debug.Log("verifica se tem personagem fora da base");
+		//Debug.Log("verifica se tem personagem fora da base");
 		if (!Player1.GetComponent<PlayerScript>().Escolhido &&
 			!Player2.GetComponent<PlayerScript>().Escolhido &&
 			!Player3.GetComponent<PlayerScript>().Escolhido &&
@@ -307,8 +307,6 @@ public class GameManager : MonoBehaviour
 
 	private void VerificaLimiteMovimento(GameObject Player, ref int PlayerIndex)
     {
-		int CaminhoFinal = Player.GetComponent<PlayerScript>().caminho.Length - Player.GetComponent<PlayerScript>().caminhoIndex;
-
 		// se o personagem ainda não tiver sido escolhido, então não faz nada
 		if (!Player.GetComponent<PlayerScript>().Escolhido ) return;
 
@@ -316,9 +314,9 @@ public class GameManager : MonoBehaviour
         if (Player.GetComponent<PlayerScript>().caminhoIndex > PlayerIndex && Player.GetComponent<PlayerScript>().EmJogo == false)
         {
             Player.GetComponent<PlayerScript>().moveAllowed = false;
-            PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
-
-            ButtonDado.interactable = true;
+			PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
+			//PlayerIndex = 0;
+			ButtonDado.interactable = true;
 
             if (flagAtualizaJogador == true)
             {
@@ -327,12 +325,14 @@ public class GameManager : MonoBehaviour
             }
 
             Player.GetComponent<PlayerScript>().EmJogo = true;
-			/*Debug.Log("Caminho final PI " + CaminhoFinal);
-			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
-			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
-			Debug.Log("Player index " + PlayerIndex);*/
 
-		}// verifica se o personagem já moveu o tanto que apareceu no dado
+            Debug.Log("SÓ SAI DA CASA ");
+            Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
+            Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
+            Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
+            Debug.Log("Player index " + PlayerIndex);
+
+        }// verifica se o personagem já moveu o tanto que apareceu no dado
         else if (Player.GetComponent<PlayerScript>().caminhoIndex >
 		   PlayerIndex + selectDadoAnimacao)
 		{		
@@ -345,50 +345,20 @@ public class GameManager : MonoBehaviour
 			{
 				AtualizaJogador(true);
 				flagAtualizaJogador = false;
-				VerificaSeTemDoisJogadoresJuntos(Player, ListaDePlayers);
-				PlayerIndex = 0;
-			}
+				List<GameObject> OtherPlayersList = VerificaSeTemDoisJogadoresJuntos(Player, ListaDePlayers);
 
-			/*Debug.Log("Verificando o limite de movimento do personagem");
-			Debug.Log("PlayerIndex " + PlayerIndex);
-			Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
+				foreach(GameObject otherPlayer in OtherPlayersList)
+                {
+					ResetApartiDoPlayerGOOPlyerIndex(otherPlayer);
 
-			Debug.Log("Caminho final PI " + CaminhoFinal);
-			Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
-			Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
-			Debug.Log("Player index " + PlayerIndex);*/
-		}
-		else if (Player.GetComponent<PlayerScript>().caminhoIndex >= Player.GetComponent<PlayerScript>().caminho.Length)
-        {
-			if (flagContaVencedor == true)
-			{
-				Debug.Log("Verifica jogadores");
-				switch (CorJogadorVez())
-				{
-					case "vermelho":
-						ContaVencedoresVermelhos++;
-						Debug.Log("Conta vencedores vermelho " + ContaVencedoresVermelhos);
-						break;
-					case "verde":
-						ContaVencedoresVerdes++;
-						Debug.Log("Conta vencedores verde " + ContaVencedoresVerdes);
-						break;
-					case "azul":
-						ContaVencedoresAzuis++;
-						Debug.Log("Conta vencedores azul " + ContaVencedoresAzuis);
-						break;
-					case "amarelo":
-						ContaVencedoresAmarelos++;
-						Debug.Log("Conta vencedores amarelo" + ContaVencedoresAmarelos);
-						break;
 				}
-				flagContaVencedor = false;
 			}
 
-			if(ContaVencedoresVermelhos == 4 || ContaVencedoresVerdes == 4 || ContaVencedoresAzuis == 4 || ContaVencedoresAmarelos == 4)
-            {
-				SceneManager.LoadScene(nextScene);
-			}
+            Debug.Log("MOVENDO NORMAL");
+            Debug.Log("PlayerIndex " + Player.GetComponent<PlayerScript>().Escolhido);
+            Debug.Log("Caminho Length " + Player.GetComponent<PlayerScript>().caminho.Length);
+            Debug.Log("Caminho index " + Player.GetComponent<PlayerScript>().caminhoIndex);
+            Debug.Log("Player index " + PlayerIndex);
 		}
 	}
 
@@ -415,7 +385,36 @@ public class GameManager : MonoBehaviour
 		VerificaLimiteMovimento(PlayerAzul3, ref PlayerAzul3Index);
 		VerificaLimiteMovimento(PlayerAzul4, ref PlayerAzul4Index);
 
+		if(VerificaFinalJogo())
+        {
+			SceneManager.LoadScene(nextScene);
+		}
+		
 	}
+
+	private bool VerificaFinalJogo()
+    {
+		Dictionary<string, int> ContagemNaUltimaCasa = new Dictionary<string, int>();
+
+		foreach(GameObject Player in ListaDePlayers)
+        {
+			PlayerScript PlayerScript = Player.GetComponent<PlayerScript>();
+
+            if (PlayerScript.EstaNaUltimaCasa())
+            {
+				if (ContagemNaUltimaCasa.ContainsKey(PlayerScript.Cor))
+					ContagemNaUltimaCasa[PlayerScript.Cor] = ContagemNaUltimaCasa[PlayerScript.Cor] + 1;
+				else
+					ContagemNaUltimaCasa[PlayerScript.Cor] = 1;
+			}
+        }
+
+		foreach(int valor in ContagemNaUltimaCasa.Values)
+        {
+			if (valor == 4) return true;
+        }
+		return false;
+    }
 
 	public static void MovePlayer(GameObject player)
 	{
@@ -433,18 +432,19 @@ public class GameManager : MonoBehaviour
 
 		JogadorText.text = (JogadorVez+1).ToString();
 
-		Debug.Log("AtualizaJogador " + JogadorVez);
+		//Debug.Log("AtualizaJogador " + JogadorVez);
 	}
 
 	public string CorJogadorVez()
     {
-		Debug.Log("Cor jogador da vez" + jogadorEscolheu[JogadorVez]);
+		//Debug.Log("Cor jogador da vez" + jogadorEscolheu[JogadorVez]);
 		return jogadorEscolheu[JogadorVez];
     }
 	
-	public bool VerificaSeTemDoisJogadoresJuntos(GameObject PlayerGO, List<GameObject> ListPlayers)
+	public List<GameObject> VerificaSeTemDoisJogadoresJuntos(GameObject PlayerGO, List<GameObject> ListPlayers)
     {
 		PlayerScript Player = PlayerGO.GetComponent<PlayerScript>();
+		List<GameObject> OtherPlayerReturnList = new List<GameObject>();
 
 		foreach (GameObject OtherPlayerGO in ListPlayers)
         {
@@ -453,8 +453,32 @@ public class GameManager : MonoBehaviour
 			if (Player.JogadorNaMesmaCasa(OtherPlayer))
             {
 				OtherPlayer.ResetPlayer();
+				OtherPlayerReturnList.Add(OtherPlayerGO);
             }
 		}
-		return true;
+		return OtherPlayerReturnList;
+	}
+
+
+	private void ResetApartiDoPlayerGOOPlyerIndex(GameObject Player)
+    {
+		if (PlayerVermelho1 == Player) PlayerVermelho1Index = 0;
+		if (PlayerVermelho2 == Player) PlayerVermelho2Index = 0;
+		if (PlayerVermelho3 == Player) PlayerVermelho3Index = 0;
+		if (PlayerVermelho4 == Player) PlayerVermelho4Index = 0;
+		if (PlayerAmarelo1 == Player) PlayerAmarelo1Index = 0;
+		if (PlayerAmarelo2 == Player) PlayerAmarelo2Index = 0;
+		if (PlayerAmarelo3 == Player) PlayerAmarelo3Index = 0;
+		if (PlayerAmarelo4 == Player) PlayerAmarelo4Index = 0;
+		if (PlayerVerde1 == Player) PlayerVerde1Index = 0;
+		if (PlayerVerde2 == Player) PlayerVerde2Index = 0;
+		if (PlayerVerde3 == Player) PlayerVerde3Index = 0;
+		if (PlayerVerde4 == Player) PlayerVerde4Index = 0;
+		if (PlayerAzul1 == Player) PlayerAzul1Index = 0;
+		if (PlayerAzul2 == Player) PlayerAzul2Index = 0;
+		if (PlayerAzul3 == Player) PlayerAzul3Index = 0;
+		if (PlayerAzul4 == Player) PlayerAzul4Index = 0;
 	}
 }
+
+
