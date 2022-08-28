@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
     public static GameObject PlayerAzul1, PlayerAzul2, PlayerAzul3, PlayerAzul4;
     public static GameObject PlayerAmarelo1, PlayerAmarelo2, PlayerAmarelo3, PlayerAmarelo4;
 
-	private int ContaVencedoresVermelhos = 0, ContaVencedoresVerdes = 0, ContaVencedoresAmarelos = 0, ContaVencedoresAzuis = 0;
-
-	public List<GameObject> CasasStars = new List<GameObject>();
-
 	public Transform dado;
 
     public Button ButtonDado;
@@ -58,8 +54,6 @@ public class GameManager : MonoBehaviour
 	// caso true representa que o jogador esta em uma condição de selecionar um personagem
 	// e mover porem não vai ser trocado o jogador pois ele não selecionou o personagem ainda
 	private bool flagAtualizaJogador = false;
-
-	private bool flagContaVencedor = false;
 
 	private List<GameObject> ListaDePlayers = new List<GameObject>();
 
@@ -97,8 +91,6 @@ public class GameManager : MonoBehaviour
 	{
 		// Desativa o bot�o do dado
 		ButtonDado.interactable = false;
-
-		flagContaVencedor = true;
 
 		//Debug.Log("Rodando o dado");
 		selectDadoAnimacao = randomNo.Next(1, 12);
@@ -315,7 +307,6 @@ public class GameManager : MonoBehaviour
         {
             Player.GetComponent<PlayerScript>().moveAllowed = false;
 			PlayerIndex = Player.GetComponent<PlayerScript>().caminhoIndex - 1;
-			//PlayerIndex = 0;
 			ButtonDado.interactable = true;
 
             if (flagAtualizaJogador == true)
@@ -437,7 +428,6 @@ public class GameManager : MonoBehaviour
 
 	public string CorJogadorVez()
     {
-		//Debug.Log("Cor jogador da vez" + jogadorEscolheu[JogadorVez]);
 		return jogadorEscolheu[JogadorVez];
     }
 	
